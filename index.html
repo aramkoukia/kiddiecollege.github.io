@@ -115,7 +115,7 @@ body .wp-site-blocks .is-style-overlay-dark :is(h1,h2,h3,h4,h5,h6,p,li,blockquot
 		<noscript><style> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript>   <link rel='stylesheet' id='vc_tta_style-css' href='wp-content/plugins/js_composer/assets/css/js_composer_tta.min.css?ver=6.0.5' media='all' />
 
 </head>
-   <body id="page-top" data-spy="scroll" data-target=".navbar-custom" class="home wp-singular page-template page-template-template page-template-visual_default_page page-template-templatevisual_default_page-php page page-id-253 wp-theme-littleones wpb-js-composer js-comp-ver-6.0.5 vc_responsive">
+   <body id="page-top" class="home wp-singular page-template page-template-template page-template-visual_default_page page-template-templatevisual_default_page-php page page-id-253 wp-theme-littleones wpb-js-composer js-comp-ver-6.0.5 vc_responsive">
       <!-- Preloader  --> 
       <div id="preloader">
          <div class="spinner">
@@ -145,7 +145,7 @@ body .wp-site-blocks .is-style-overlay-dark :is(h1,h2,h3,h4,h5,h6,p,li,blockquot
                <!-- /.navbar-header -->
                <!-- Collect the nav links, forms, and other content for toggling -->
                <div class="collapse navbar-collapse" id="navbar-brand">
-                    <ul id="menu-new_menu" class="nav navbar-nav page-scroll navbar-right"><li id="menu-item-244" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-244"><a href="#page-top" onclick="return navigateToSiteSection(event, '#page-top')">Home</a></li>
+                    <ul id="menu-new_menu" class="nav navbar-nav page-scroll navbar-right"><li id="menu-item-244" class="menu-item menu-item-type-custom menu-item-object-custom current-menu-item active menu-item-244"><a href="#page-top" onclick="return navigateToSiteSection(event, '#page-top')">Home</a></li>
 <li id="menu-item-178" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-178"><a href="#services" onclick="return navigateToSiteSection(event, '#services')">Services</a></li>
 <li id="menu-item-179" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-179"><a href="#about" onclick="return navigateToSiteSection(event, '#about')">About Us</a></li>
 <li id="menu-item-181" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-181"><a href="#gallery" onclick="return navigateToSiteSection(event, '#gallery')">Gallery</a></li>
@@ -869,6 +869,16 @@ var directory_uri = {"stylesheet_directory_uri":"wp-content/themes/littleones"};
 function navigateToSiteSection(event, target) {
   if (event) event.preventDefault();
 
+  document.querySelectorAll('#menu-new_menu > li').forEach(function (item) {
+    item.classList.remove('active', 'current-menu-item');
+  });
+  var selectedLink = document.querySelector('#menu-new_menu a[href="' + target + '"]');
+  if (selectedLink && selectedLink.parentElement) {
+    selectedLink.parentElement.classList.add('active', 'current-menu-item');
+  }
+  window.__selectedMenuTarget = target;
+  window.__menuSelectionUntil = Date.now() + 800;
+
   if (window.innerWidth <= 991) {
     var menu = document.getElementById('navbar-brand');
     var toggle = document.querySelector('.navbar-toggle');
@@ -895,6 +905,56 @@ function navigateToSiteSection(event, target) {
   if (history.replaceState) history.replaceState(null, '', target);
   return false;
 }
+
+(function () {
+  var sectionTargets = ['#services', '#about', '#gallery', '#tuition', '#contact'];
+  var scrollTimer = null;
+
+  function setActiveMenu(target) {
+    document.querySelectorAll('#menu-new_menu > li').forEach(function (item) {
+      item.classList.remove('active', 'current-menu-item');
+    });
+    var link = document.querySelector('#menu-new_menu a[href="' + target + '"]');
+    if (link && link.parentElement) {
+      link.parentElement.classList.add('active', 'current-menu-item');
+    }
+  }
+
+  function updateActiveMenu() {
+    if (window.__menuSelectionUntil && Date.now() < window.__menuSelectionUntil) {
+      setActiveMenu(window.__selectedMenuTarget || '#page-top');
+      return;
+    }
+
+    var headerOffset = window.innerWidth <= 991 ? 56 : 150;
+    var current = '#page-top';
+
+    var atBottom = window.innerHeight + window.pageYOffset >= document.documentElement.scrollHeight - 4;
+    if (atBottom) {
+      current = '#contact';
+    } else {
+      for (var i = 0; i < sectionTargets.length; i++) {
+        var section = document.querySelector(sectionTargets[i]);
+        if (section && section.getBoundingClientRect().top <= headerOffset) {
+          current = sectionTargets[i];
+        }
+      }
+
+      if (window.pageYOffset < 150) current = '#page-top';
+    }
+    setActiveMenu(current);
+  }
+
+  window.addEventListener('scroll', function () {
+    if (scrollTimer) window.cancelAnimationFrame(scrollTimer);
+    scrollTimer = window.requestAnimationFrame(updateActiveMenu);
+  }, { passive: true });
+
+  window.addEventListener('load', updateActiveMenu);
+  if (location.hash && document.querySelector(location.hash)) {
+    setActiveMenu(location.hash);
+  }
+})();
 </script>
 
 
