@@ -1,0 +1,31 @@
+@font-face {
+  font-family: 'Baloo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./baloo/baloo-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('./lato/lato-regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('./lato/lato-bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url('./lato/lato-black.ttf') format('truetype');
+}
