@@ -224,3 +224,19 @@ section[id], [id="page-top"] { scroll-margin-top: 70px; }
   }
   .daily-schedule-list .schedule-item time { white-space: normal; text-align: center; }
 }
+
+/* Keep the raw schedule and contact content at full section width. */
+#tuition .wpb_wrapper,
+#tuition .wpb_raw_code,
+#tuition .wpb_raw_code .wpb_wrapper,
+#tuition .col-sm-12 {
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .kiddie-contact-card { display: flex; flex-direction: column; justify-content: center; }
+  .kiddie-map-card { min-height: 420px; }
+  .kiddie-map-card iframe { min-height: 420px; }
+}

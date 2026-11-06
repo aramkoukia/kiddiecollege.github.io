@@ -1,0 +1,18 @@
+
+/* Responsive daily schedule cards */
+#tuition .wpb_wrapper,
+#tuition .wpb_raw_code,
+#tuition .wpb_raw_code .wpb_wrapper,
+#tuition .col-sm-12 { width:100% !important; max-width:none !important; box-sizing:border-box; }
+.daily-schedule-list { width:100%; max-width:1050px; margin:20px auto 0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px 18px; }
+.daily-schedule-list .schedule-item { min-width:0; display:grid; grid-template-columns:112px minmax(0,1fr); align-items:start; gap:16px; background:rgba(255,255,255,.96); border:1px solid rgba(77,118,130,.12); border-radius:14px; padding:15px 18px; box-shadow:0 5px 18px rgba(52,91,102,.08); box-sizing:border-box; }
+.daily-schedule-list .schedule-item time { display:inline-block; width:auto; padding:7px 10px; border-radius:999px; background:#ffb000; color:#fff; font-family:Lato,sans-serif; font-size:14px; font-weight:700; line-height:20px; white-space:nowrap; text-align:center; }
+.daily-schedule-list .schedule-item p { margin:4px 0 0; color:#4a5558; font-size:15px; line-height:23px; }
+#contact .container { max-width:1100px; }
+@media (max-width:767px) {
+  .daily-schedule-list { grid-template-columns:1fr; gap:10px; margin-top:14px; }
+  .daily-schedule-list .schedule-item { grid-template-columns:98px minmax(0,1fr); gap:10px; border-radius:12px; padding:12px; }
+  .daily-schedule-list .schedule-item time { font-size:12px; line-height:17px; padding:6px 7px; white-space:normal; }
+  .daily-schedule-list .schedule-item p { font-size:13px; line-height:19px; margin-top:1px; }
+}
+@media (min-width:768px) { .kiddie-contact-card { display:flex; flex-direction:column; justify-content:center; min-height:360px; } .kiddie-map-card,.kiddie-map-card iframe { min-height:420px; } }
