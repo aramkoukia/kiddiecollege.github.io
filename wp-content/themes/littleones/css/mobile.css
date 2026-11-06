@@ -1,0 +1,74 @@
+/* Mobile improvements for the static homepage */
+html { scroll-behavior: smooth; overflow-x: hidden; }
+body { overflow-x: hidden; width: 100%; max-width: 100%; }
+section[id], [id="page-top"] { scroll-margin-top: 70px; }
+
+@media (max-width: 991px) {
+  #layerslider { height: 330px !important; }
+  section[id], .wpb_row { overflow-wrap: anywhere; }
+  .container { padding-left: 16px; padding-right: 16px; }
+  #main section { padding-top: 48px; padding-bottom: 48px; }
+  .navbar-custom,
+  .navbar.navbar-custom.navbar-fixed-top { min-height: 56px; }
+  .navbar-header { min-height: 56px; }
+  .navbar-brand { height: 56px; line-height: 56px; }
+  .navbar-brand .logo-text { font-size: 25px; line-height: 56px; }
+  .navbar-toggle { min-width: 56px; height: 56px; margin: 0; padding: 0; border-radius: 0; line-height: 56px; }
+  .navbar-toggle i { font-size: 24px; line-height: 56px; }
+  .navbar-collapse.collapse.in,
+  .navbar-collapse.collapsing { max-height: calc(100vh - 56px) !important; overflow-y: auto; background: #fff; }
+  .navbar-nav > li { height: auto !important; line-height: 1 !important; }
+  .navbar-custom ul.nav li a { line-height: 42px; padding: 4px 16px; font-size: 16px; }
+  .navbar-custom .nav a:hover,
+  .navbar-custom .nav > .active > a { padding-top: 4px; padding-bottom: 4px; }
+  p, ul { font-size: 15px; line-height: 24px; }
+  #main p { max-width: 680px; }
+  h1 { font-size: 38px !important; line-height: 42px !important; }
+  h2 { font-size: 36px !important; line-height: 40px !important; }
+  h3 { font-size: 30px !important; line-height: 34px !important; }
+  h4 { font-size: 24px !important; line-height: 28px !important; }
+}
+
+@media (max-width: 767px) {
+  .navbar-brand { left: 16px; }
+  #layerslider { height: 270px !important; }
+  .header-text { top: 14% !important; width: calc(100% - 32px); min-width: 0 !important; }
+  .header-text h1 { font-size: 28px !important; line-height: 32px !important; }
+  .header-text .subtitle { font-size: 16px; line-height: 22px; }
+  #main section { padding-top: 42px; padding-bottom: 42px; }
+  .section-heading { margin-bottom: 24px; }
+  h1 { font-size: 32px !important; line-height: 36px !important; }
+  h2 { font-size: 30px !important; line-height: 34px !important; }
+  h3 { font-size: 26px !important; line-height: 30px !important; }
+  h4 { font-size: 22px !important; line-height: 26px !important; }
+  p, ul { font-size: 15px; line-height: 23px; }
+  #main p { max-width: 34rem; margin-left: auto; margin-right: auto; }
+  .img-responsive { width: 100%; height: auto; }
+  .tab-content .col-lg-7,
+  .tab-content .col-lg-5 { width: 100%; }
+  .well { padding: 24px 18px; border-radius: 18px 54px; }
+  .nav-tabs > li { float: none; width: 100%; }
+  .nav-tabs > li > a { margin-right: 0; border: 0; }
+
+  /* Keep the daily schedule readable without forcing sideways scrolling. */
+  #tuition table { display: block; width: 100%; background: #fff; }
+  #tuition table colgroup { display: none; }
+  #tuition table tbody { display: block; width: 100%; }
+  #tuition table tr { display: grid; grid-template-columns: 88px minmax(0, 1fr); width: 100%; border-bottom: 1px solid #ddd; }
+  #tuition table tr:first-child { background: #f4f4f4; }
+  #tuition table td { display: block; width: 100%; padding: 10px 8px; border-top: 0; }
+  #tuition table td p { font-size: 14px; line-height: 21px; margin: 0; }
+  #tuition table td:first-child { border-right: 1px solid #ddd; }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand .logo-text { font-size: 21px; }
+  #layerslider { height: 230px !important; }
+  #main section { padding-top: 36px; padding-bottom: 36px; }
+  h2 { font-size: 26px !important; line-height: 30px !important; }
+  h3 { font-size: 23px !important; line-height: 27px !important; }
+  h4 { font-size: 20px !important; line-height: 24px !important; }
+  #tuition table tr { grid-template-columns: 82px minmax(0, 1fr); }
+  #tuition table td { padding: 8px 6px; }
+  #tuition table td p { font-size: 13px; line-height: 19px; }
+}
