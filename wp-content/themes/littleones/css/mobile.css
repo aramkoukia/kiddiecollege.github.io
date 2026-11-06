@@ -72,3 +72,155 @@ section[id], [id="page-top"] { scroll-margin-top: 70px; }
   #tuition table td { padding: 8px 6px; }
   #tuition table td p { font-size: 13px; line-height: 19px; }
 }
+
+
+/* Contact information and map */
+.kiddie-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.85fr) minmax(320px, 1.15fr);
+  gap: 28px;
+  align-items: stretch;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.kiddie-contact-card,
+.kiddie-map-card {
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 12px 35px rgba(43, 73, 92, 0.12);
+}
+.kiddie-contact-card {
+  background: #fff;
+  padding: 32px;
+}
+.kiddie-contact-card h3 { margin-bottom: 22px; }
+.kiddie-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  color: #333;
+  text-decoration: none;
+  padding: 16px 0;
+  border-bottom: 1px solid #e7eef0;
+}
+.kiddie-contact-item:last-child { border-bottom: 0; }
+.kiddie-contact-item:hover { text-decoration: none; color: #333; }
+.kiddie-contact-icon {
+  flex: 0 0 46px;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffb000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  font-size: 21px;
+  font-weight: 700;
+}
+.kiddie-contact-item small,
+.kiddie-contact-item strong { display: block; }
+.kiddie-contact-item small {
+  color: #777;
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.6px;
+}
+.kiddie-contact-item strong { font-size: 17px; line-height: 24px; }
+.kiddie-map-card { min-height: 360px; background: #ddd; }
+.kiddie-map-card iframe { width: 100%; height: 100%; min-height: 360px; border: 0; display: block; }
+
+@media (max-width: 767px) {
+  .kiddie-contact-grid { grid-template-columns: 1fr; gap: 18px; }
+  .kiddie-contact-card { padding: 22px 18px; border-radius: 18px; }
+  .kiddie-contact-item { gap: 12px; padding: 14px 0; }
+  .kiddie-contact-icon { flex-basis: 42px; width: 42px; height: 42px; }
+  .kiddie-contact-item strong { font-size: 15px; line-height: 21px; overflow-wrap: anywhere; }
+  .kiddie-map-card, .kiddie-map-card iframe { min-height: 300px; }
+}
+
+/* Replacement daily schedule cards */
+.daily-schedule-list {
+  width: 100%;
+  max-width: 1050px;
+  margin: 20px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px 18px;
+}
+.daily-schedule-list .schedule-item {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr);
+  align-items: start;
+  gap: 16px;
+  background: rgba(255,255,255,.96);
+  border: 1px solid rgba(77,118,130,.12);
+  border-radius: 14px;
+  padding: 15px 18px;
+  box-shadow: 0 5px 18px rgba(52,91,102,.08);
+}
+.daily-schedule-list .schedule-item time {
+  display: inline-block;
+  width: fit-content;
+  padding: 7px 10px;
+  border-radius: 999px;
+  background: #ffb000;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
+  white-space: nowrap;
+}
+.daily-schedule-list .schedule-item p {
+  margin: 4px 0 0;
+  color: #4a5558;
+  font-size: 15px;
+  line-height: 23px;
+}
+#tuition .wpb_wrapper > .col-sm-12 > hr {
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  #contact .container { max-width: 1100px; }
+  .kiddie-contact-grid { align-items: stretch; }
+  .kiddie-contact-card { min-height: 360px; }
+}
+
+@media (max-width: 767px) {
+  .daily-schedule-list {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    margin-top: 14px;
+  }
+  .daily-schedule-list .schedule-item {
+    grid-template-columns: 98px minmax(0, 1fr);
+    gap: 10px;
+    border-radius: 12px;
+    padding: 12px;
+  }
+  .daily-schedule-list .schedule-item time {
+    font-size: 12px;
+    line-height: 17px;
+    padding: 6px 7px;
+  }
+  .daily-schedule-list .schedule-item p {
+    font-size: 13px;
+    line-height: 19px;
+    margin-top: 1px;
+  }
+}
+
+@media (max-width: 480px) {
+  .daily-schedule-list .schedule-item {
+    grid-template-columns: 86px minmax(0, 1fr);
+    gap: 8px;
+  }
+  .daily-schedule-list .schedule-item time { white-space: normal; text-align: center; }
+}
