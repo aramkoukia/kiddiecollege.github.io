@@ -10,35 +10,7 @@ $(document).ready(function() {
 
     //Smooth Scroll 
 	
-    $('.page-scroll a').on('click', function(event) {
-        var $anchor = $(this);
-        var str_href = $anchor.attr('href');
-        var targetMatch = str_href && str_href.match(/#(.+)/);
-
-        if(targetMatch && $(targetMatch[0]).length > 0) {
-            event.preventDefault();
-
-            var $target = $(targetMatch[0]);
-            var headerOffset = $(window).width() <= 991 ? 56 : 70;
-            var targetTop = targetMatch[0] === '#page-top' ? 0 : $target.offset().top - headerOffset;
-
-            window.scrollTo({
-                top: targetTop,
-                behavior: 'smooth'
-            });
-
-            if($(window).width() <= 991) {
-                var $navbar = $('#navbar-brand');
-                if($navbar.hasClass('in')) {
-                    $navbar.collapse('hide');
-                }
-            }
-
-            if(history.replaceState) {
-                history.replaceState(null, '', targetMatch[0]);
-            }
-        }
-    });
+    // Navigation scrolling is handled by the fast static-site script in index.html.
 		
 
     //	Back Top Link
