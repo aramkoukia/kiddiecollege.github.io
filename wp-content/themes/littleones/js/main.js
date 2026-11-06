@@ -13,17 +13,31 @@ $(document).ready(function() {
     $('.page-scroll a').on('click', function(event) {
         var $anchor = $(this);
         var str_href = $anchor.attr('href');
-        str_href = str_href.match(/#(.+)/g);
-        if($.isArray(str_href)) {str_href = str_href[0];}
-        if(str_href){
-            if($(str_href).length > 0){
-                $('html, body').stop().animate({
-                    scrollTop: $(str_href).offset().top
-                }, 2500, 'easeInOutExpo');
-                event.preventDefault();
+        var targetMatch = str_href && str_href.match(/#(.+)/);
+
+        if(targetMatch && $(targetMatch[0]).length > 0) {
+            event.preventDefault();
+
+            var $target = $(targetMatch[0]);
+            var headerOffset = $(window).width() <= 991 ? 56 : 70;
+            var targetTop = targetMatch[0] === '#page-top' ? 0 : $target.offset().top - headerOffset;
+
+            window.scrollTo({
+                top: targetTop,
+                behavior: 'smooth'
+            });
+
+            if($(window).width() <= 991) {
+                var $navbar = $('#navbar-brand');
+                if($navbar.hasClass('in')) {
+                    $navbar.collapse('hide');
+                }
+            }
+
+            if(history.replaceState) {
+                history.replaceState(null, '', targetMatch[0]);
             }
         }
-        
     });
 		
 

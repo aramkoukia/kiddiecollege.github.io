@@ -843,7 +843,7 @@ Member of YMCA resource and referral
 <script id="littleones-map-api-js" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlAac1dcIz4cFkF6Z2VxoNmAR2KlvUkcM&#038;ver=7.1.4"></script>
 <script id="bootstrap-js" src="wp-content/themes/littleones/js/bootstrap.min.js?ver=7.1.4"></script>
 <script id="smartresize-js" src="wp-content/themes/littleones/js/smartresize.js?ver=7.1.4"></script>
-<script id="littleones-main-js" src="wp-content/themes/littleones/js/main.js?ver=7.1.4"></script>
+<script id="littleones-main-js" src="wp-content/themes/littleones/js/main.js?ver=7.1.5"></script>
 <script id="littleone-main-extend-js" src="wp-content/themes/littleones/js/main-extend.js?ver=7.1.4"></script>
 <script id="littleone-custom-js" src="wp-content/themes/littleones/js/custom.js?ver=7.1.4"></script>
 <script id="littleones-contact-js" src="wp-content/themes/littleones/js/contact.js?ver=7.1.4"></script>
@@ -865,6 +865,24 @@ var directory_uri = {"stylesheet_directory_uri":"wp-content/themes/littleones"};
 <script id="vc_accordion_script-js" src="wp-content/plugins/js_composer/assets/lib/vc_accordion/vc-accordion.min.js?ver=6.0.5"></script>
 <script id="vc_tta_autoplay_script-js" src="wp-content/plugins/js_composer/assets/lib/vc-tta-autoplay/vc-tta-autoplay.min.js?ver=6.0.5"></script>
 <script id="vc_tabs_script-js" src="wp-content/plugins/js_composer/assets/lib/vc_tabs/vc-tabs.min.js?ver=6.0.5"></script>
+<script>
+(function () {
+  document.querySelectorAll('.navbar-nav a[href^="#"], .navbar-brand a[href^="#"]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      if (window.innerWidth <= 991) {
+        var menu = document.getElementById('navbar-brand');
+        var toggle = document.querySelector('.navbar-toggle');
+        if (menu) {
+          menu.classList.remove('in', 'collapsing');
+          menu.classList.add('collapse');
+          menu.style.height = '0px';
+        }
+        if (toggle) toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+  });
+})();
+</script>
 
 
 </body>
