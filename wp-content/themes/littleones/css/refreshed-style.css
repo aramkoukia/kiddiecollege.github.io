@@ -1,0 +1,141 @@
+/* Kiddie College 2026 visual refresh: warm, readable, daycare-friendly */
+:root {
+  --kc-teal: #69b9c4;
+  --kc-teal-dark: #397d87;
+  --kc-navy: #355761;
+  --kc-coral: #f08a72;
+  --kc-yellow: #f2b84b;
+  --kc-cream: #fffaf2;
+  --kc-soft-blue: #edf7f7;
+  --kc-text: #4f6266;
+}
+
+body {
+  color: var(--kc-text);
+  font-family: Lato, sans-serif;
+  font-size: 17px;
+}
+body p, body li, body ul { color: var(--kc-text); }
+body p { font-size: 17px; line-height: 29px; }
+body h1, body h2, body h3, body h4 { letter-spacing: -0.2px; }
+body h2 { font-size: 44px; line-height: 50px; color: var(--kc-navy); }
+body h3 { font-size: 30px; line-height: 36px; color: var(--kc-navy); }
+body h4 { font-size: 25px; line-height: 31px; color: var(--kc-navy); }
+body h5 { color: var(--kc-navy); }
+
+@media (min-width: 992px) {
+  #main section { padding-top: 84px; padding-bottom: 84px; }
+  #main .small-section { padding-top: 72px; padding-bottom: 72px; }
+}
+
+.section-heading { margin-bottom: 38px; }
+.section-heading h2 {
+  margin-bottom: 14px;
+  text-transform: none;
+  font-weight: 400;
+}
+.section-heading .hr {
+  max-width: 76px;
+  height: 4px;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--kc-yellow), var(--kc-coral), var(--kc-teal));
+}
+.section-heading .hr:after { display: none; }
+
+.navbar-custom { border-bottom: 1px solid rgba(53,87,97,.08); box-shadow: 0 3px 18px rgba(53,87,97,.06); }
+.navbar-custom ul.nav li a { color: var(--kc-navy); font-family: Lato, sans-serif; font-size: 15px; font-weight: 700; letter-spacing: .15px; }
+.navbar-custom .nav > .active > a,
+.navbar-custom ul.nav li a:hover { color: var(--kc-teal-dark) !important; }
+.navbar-custom .nav > .active > a::after {
+  content: '';
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 7px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--kc-coral);
+}
+
+.header-text h1 { font-size: 52px !important; line-height: 58px !important; text-shadow: 0 2px 12px rgba(31,68,75,.18); }
+.header-text .subtitle { font-size: 20px !important; line-height: 28px !important; }
+
+#services, #gallery, #contact, #reviews { background-color: var(--kc-cream); }
+#about { background-color: #fff; }
+#reviews { border-top: 1px solid rgba(53,87,97,.06); }
+
+.serviceBox, .daily-schedule-list .schedule-item, .google-reviews-button,
+.kiddie-contact-card, .kiddie-map-card {
+  border-radius: 16px;
+}
+.serviceBox { border: 1px solid rgba(53,87,97,.08); }
+.serviceBox h4 { color: var(--kc-navy); }
+.serviceBox .icon { background: var(--kc-teal); }
+
+.nav-tabs { border-bottom: 1px solid rgba(53,87,97,.12); }
+.nav-tabs > li > a {
+  border-radius: 999px 999px 0 0 !important;
+  color: var(--kc-navy);
+  font-family: Lato, sans-serif;
+  font-weight: 700;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover {
+  border-color: var(--kc-teal) var(--kc-teal) transparent;
+  color: var(--kc-teal-dark);
+}
+.panel { border-radius: 12px; border-color: rgba(53,87,97,.12); overflow: hidden; }
+.panel-heading { border-radius: 12px 12px 0 0 !important; }
+
+#tuition { background-color: var(--kc-teal-dark) !important; }
+#tuition .section-heading h2 { color: #fff; }
+#tuition .section-heading .hr { background: linear-gradient(90deg, #fff, var(--kc-yellow)); }
+#tuition .schedule-intro-card { border-radius: 14px; }
+.daily-schedule-list .schedule-item { border-radius: 12px; box-shadow: 0 5px 16px rgba(28,69,77,.10); }
+.daily-schedule-list .schedule-item time { background: var(--kc-coral); }
+
+.testimonial { background: rgba(255,255,255,.72); border-radius: 16px; box-shadow: 0 8px 24px rgba(53,87,97,.08); }
+.testimonial .description { background: #fff; border-radius: 14px; }
+.testimonial .description p { font-size: 17px; line-height: 28px; color: var(--kc-text); }
+.testimonial-title { color: var(--kc-navy); }
+.testimonial-title small { color: var(--kc-teal-dark); }
+.google-reviews-button { background: var(--kc-coral); }
+.google-reviews-button:hover { background: #d97460; }
+
+.kiddie-contact-card { border: 1px solid rgba(53,87,97,.08); }
+.kiddie-contact-icon { background: var(--kc-teal); }
+.kiddie-contact-item strong { color: var(--kc-navy); }
+.kiddie-map-card { border: 1px solid rgba(53,87,97,.08); }
+
+footer { background: var(--kc-navy); }
+.kiddie-footer-brand, .kiddie-footer-copy { color: rgba(255,255,255,.88); }
+.kiddie-footer-brand::after { color: var(--kc-yellow); }
+
+@media (max-width: 991px) {
+  body { font-size: 16px; }
+  body p, #main p { font-size: 16px; line-height: 26px; }
+  body h2 { font-size: 34px !important; line-height: 40px !important; }
+  body h3 { font-size: 27px !important; line-height: 33px !important; }
+  body h4 { font-size: 22px !important; line-height: 28px !important; }
+  #main section { padding-top: 48px; padding-bottom: 48px; }
+  .section-heading { margin-bottom: 28px; }
+  .navbar-custom ul.nav li a { font-size: 16px; }
+  .navbar-custom .nav > .active > a::after { display: none; }
+  .header-text h1 { font-size: 34px !important; line-height: 40px !important; }
+  .header-text .subtitle { font-size: 17px !important; line-height: 24px !important; }
+}
+
+@media (max-width: 767px) {
+  body p, #main p { font-size: 15px; line-height: 24px; }
+  body h2 { font-size: 28px !important; line-height: 34px !important; }
+  body h3 { font-size: 23px !important; line-height: 29px !important; }
+  body h4 { font-size: 20px !important; line-height: 25px !important; }
+  #main section { padding-top: 38px; padding-bottom: 38px; }
+  .section-heading { margin-bottom: 24px; }
+  .section-heading .hr { width: 58px; height: 3px; }
+  .header-text h1 { font-size: 29px !important; line-height: 34px !important; }
+  .header-text .subtitle { font-size: 15px !important; line-height: 21px !important; }
+  .testimonial .description p { font-size: 15px; line-height: 24px; }
+  .kiddie-footer-brand, .kiddie-footer-copy { color: rgba(255,255,255,.88); }
+}
