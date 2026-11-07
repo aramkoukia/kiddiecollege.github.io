@@ -390,10 +390,11 @@ body .wp-site-blocks .is-style-overlay-dark :is(h1,h2,h3,h4,h5,h6,p,li,blockquot
                 <!-- Image -->
                 <img decoding="async" src="wp-content/uploads/2017/08/birdornament.png" alt="">
             </div>
-            <div class="section-heading">
+            <div class="section-heading testimonials-heading">
                 <h2 class="">Testimonials</h2>
                 <!-- divider -->
                 <div class="hr"></div>
+                <a class="google-reviews-button" href="https://share.google/GJ1NNV9WHWDCt4elE" target="_blank" rel="noopener">View Google Reviews</a>
             </div>
                
       
@@ -815,21 +816,14 @@ Member of YMCA resource and referral
 </div>
 <footer>
    <div class="container">
-                  <div class="col-md-4 text-center">
-         <!-- Footer logo -->
-                 Kiddie College
-               </div>
-      <!-- Credits-->
-      <div class="credits col-md-12 text-center">
-         <hr/>
-         Copyright © 2019         <!-- Go To Top Link -->
-         <div class="page-scroll hidden-sm hidden-xs">
-            <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
-         </div>
+      <div class="kiddie-footer-inner">
+         <a class="kiddie-footer-brand" href="#page-top" onclick="return navigateToSiteSection(event, '#page-top')">Kiddie College</a>
+         <span class="kiddie-footer-copy">Copyright © <span id="footer-year">2026</span> Kiddie College. All rights reserved.</span>
       </div>
-      <!-- /credits -->
+      <div class="page-scroll hidden-sm hidden-xs">
+         <a href="#page-top" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+      </div>
    </div>
-   <!-- /.container -->
 </footer>
 <!-- /footer ends -->
 </div>
@@ -951,6 +945,8 @@ function navigateToSiteSection(event, target) {
   }, { passive: true });
 
   window.addEventListener('load', updateActiveMenu);
+  var footerYear = document.getElementById('footer-year');
+  if (footerYear) footerYear.textContent = String(new Date().getFullYear());
   if (location.hash && document.querySelector(location.hash)) {
     setActiveMenu(location.hash);
   }
